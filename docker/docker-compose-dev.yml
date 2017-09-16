@@ -1,0 +1,16 @@
+version: '2'
+services:
+  nginx:
+    image: nginx
+    container_name: 'nginx'
+    ports: 
+      - '80:8080'
+    volumes_from:
+      - datavol
+      
+  datavol:
+    image: busybox
+    container_name: 'datavol'
+    volumes:
+      - ../nginx/conf:/etc/nginx/conf.d:ro
+      - ../html:/var/www:ro

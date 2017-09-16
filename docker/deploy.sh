@@ -20,7 +20,6 @@ echo_and_do () {
 }
 
 deploy_start_pro () {
-#    echo_and_do "ecs-cli configure --region ap-northeast-1 --cluster mob-map1"
 #    echo_and_do "ecs-cli compose -f ./docker-compose.yml up"
     echo_and_do "ecs-cli compose -f ./docker-compose.yml service up"
 #    echo_and_do "ecs-cli compose -f ./docker-compose.yml scale 2"
@@ -38,11 +37,11 @@ deploy_stop_pro () {
 }
 
 deploy_start_dev () {
-    echo_and_do "docker-compose up"
+    echo_and_do "docker-compose -f ./docker-compose-dev.yml up"
 }
 
 deploy_stop_dev () {
-    echo_and_do "docker-compose down"
+    echo_and_do "docker-compose -f ./docker-compose-dev.yml down"
 }
 
 if [ "$ENV" = "pro" ]; then
