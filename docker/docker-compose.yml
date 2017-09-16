@@ -12,8 +12,8 @@ services:
     image: busybox
     container_name: 'datavol'
     volumes:  
-      - /etc/nginx/conf.d:ro
-      - /var/www:ro
-      - /work/:ro
+      - /etc/nginx/conf.d
+      - /var/www
+      - /work/
     working_dir: /work
     command: bash -c "git clone https://github.com/yasu-s-nttr/mob-map.git && cd mob-map/ && sh init_container.sh"
