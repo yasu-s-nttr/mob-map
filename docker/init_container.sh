@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cp -R ./nginx/conf/* /etc/nginx/conf.d/
-cp -R ./html/* /var/www/
+cp -r ./nginx/conf/* /etc/nginx/conf.d/
+cp -r ./html/* /var/www/
