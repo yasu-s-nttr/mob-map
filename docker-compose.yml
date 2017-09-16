@@ -10,9 +10,12 @@ services:
     container_name: 'nginx'
     ports: 
       - '80:8080'
+#    command: bash -c "git clone "
     volumes:
-      - ./nginx/conf:/etc/nginx/conf.d:ro
-      - ./html:/var/www:ro
+#      - ./nginx/conf:/etc/nginx/conf.d:ro
+#      - ./html:/var/www:ro   
+      - /etc/nginx/conf.d:/Users/yasusato/git/repos/mobpro/project1/nginx/conf:ro
+      - /var/www:/Users/yasusato/git/repos/mobpro/project1/html:ro  
 #    volumes_from
 #      - datavol
 #  datavol:
