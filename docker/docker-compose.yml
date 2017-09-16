@@ -1,19 +1,19 @@
 version: '2'
 services:
-  nginx:
-    image: nginx
-    container_name: 'nginx'
-    ports: 
-      - '80:8080'
-    volumes_from:
-      - datavol
-      
   datavol:
-    image: busybox
+    image: centos:7.4.1708
     container_name: 'datavol'
     volumes:  
       - /etc/nginx/conf.d
       - /var/www
       - /work/
     working_dir: /work
-    command: sh -c "git clone https://github.com/yasu-s-nttr/mob-map.git && cd mob-map/ && sh init_container.sh"
+    command: bash -c "git clone https://github.com/yasu-s-nttr/mob-map.git && cd mob-map/ && sh init_container.sh"
+
+  nginx:
+    image: nginx:1.13
+    container_name: 'nginx'
+    ports: 
+      - '80:8080'
+    volumes_from:
+      - datavol
