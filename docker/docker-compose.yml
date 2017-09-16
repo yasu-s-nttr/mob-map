@@ -8,7 +8,7 @@ services:
       - /var/www
       - /work/
     working_dir: /work
-    command: bash -c "yum -y update && yum -y install git && git clone https://github.com/yasu-s-nttr/mob-map.git && cd mob-map/docker/ && sh init_container.sh"
+    command: bash -c "yum -y update && yum -y install git && git clone https://github.com/yasu-s-nttr/mob-map.git ; cd mob-map/docker/ && sh init_container.sh"
 
   nginx:
     image: nginx:1.13
