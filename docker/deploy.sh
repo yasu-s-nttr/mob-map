@@ -37,9 +37,7 @@ deploy_imagepush_pro () {
 }
 
 deploy_start_pro () {
-#    echo_and_do "ecs-cli compose -f ./docker-compose.yml service up --load-balancer-name mob-map-lb"
-    echo_and_do "ecs-cli compose -f ./docker-compose.yml service up"
-#    echo_and_do "ecs-cli compose -f ./docker-compose.yml scale 2"
+    echo_and_do "ecs-cli compose -f ./docker-compose.yml service up --target-group-arn arn:aws:elasticloadbalancing:ap-northeast-1:807116252089:targetgroup/mob-map-lb-target2/f7a531c52fe0e54e --container-name nginx --container-port 8080 --role ecsServiceRole"
     echo_and_do "ecs-cli ps"
 }
 

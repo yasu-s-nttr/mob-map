@@ -39,3 +39,7 @@ IAMユーザを作成した際に得た ACCESS_KEY, SECRET_KEY を入力
 `deploy.sh pro {start-balance|stop}`  
 start後は <http://map.nasu-nasu.jp> でアクセス可能  
 1台目にアクセスする場合は <http://map1.nasu-nasu.jp> でも可能
+
+* README.md を書くときの表示例をみるときのツール
+（ちょっと動作がおかしいので他に良いツールがあったら教えてください）
+<http://www.ctrlshift.net/project/markdowneditor/>
