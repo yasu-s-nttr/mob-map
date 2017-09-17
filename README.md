@@ -23,7 +23,7 @@ Windows でも Mac でも以下からインストールできます。
 5. IAMユーザの作成  
 <http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_create.html>  
 6. AWS CLI, ECS CLI のインストール  
-Mac なら Homebrew(<https://brew.sh/index_ja.html>) で
+Mac なら Homebrew(<https://brew.sh/index_ja.html>) で  
 `brew install awscli`  
 `brew install amazon-ecs-cli`  
 Windows でもインストール方法があるはずです。
