@@ -11,32 +11,35 @@
 1. docker のインストール  
 Windows でも Mac でも以下からインストールできます。
 <https://www.docker.com/>
-1. git clone  
+2. git clone  
 > git clone https://github.com/yasu-s-nttr/mob-map.git
 
-1. docker ディレクトリ内へ移動  
+3. docker ディレクトリ内へ移動  
 > cd mob-map/docker/  
 
-1. 開発環境（PC）で docker コンテナを実行、停止  
+4. 開発環境（PC）で docker コンテナを実行、停止  
 > deploy.sh dev {start|stop}
 
-1. IAMユーザの作成  
+5. IAMユーザの作成  
 <http://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/id_users_create.html>  
-1. AWS CLI, ECS CLI のインストール  
+6. AWS CLI, ECS CLI のインストール  
 Mac なら Homebrew(<https://brew.sh/index_ja.html>) で
 > brew install awscli  
-> brew install amazon-ecs-cli  
+> brew install amazon-ecs-cli 
+
 Windows でもインストール方法があるはず
 
-1. 開発したデータを ECR（Amazon EC2 Container Registry）にプッシュ
+7. 開発したデータを ECR（Amazon EC2 Container Registry）にプッシュ
 IAMユーザを作成した際に得た ACCESS_KEY, SECRET_KEY を入力
 > deploy.sh pro config ACCESS_KEY SECRET_KEY  
 > deploy.sh pro imagepush
 
-1. 本番環境 ECS（Amazon EC2 Container Service） に docker コンテナをアップロード、停止  
+8. 本番環境 ECS（Amazon EC2 Container Service） に docker コンテナをアップロード、停止  
 一台構成で作成する場合は
 > deploy.sh pro {start|stop}  
+
 二台構成で作成する場合は  
 > deploy.sh pro {start-balance|stop}
+
 start後は <http://map.nasu-nasu.jp> でアクセス可能
 1台目にアクセスする場合は <http://map1.nasu-nasu.jp> でも可能
