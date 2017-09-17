@@ -1,14 +1,14 @@
 version: '2'
 services:
   datavol:
-    image: centos:7.4.1708
+    image: 807116252089.dkr.ecr.ap-northeast-1.amazonaws.com/nasu3108/mob-map-datavol:latest
+#    image: busybox:1.27
     container_name: 'datavol'
-    volumes:  
+    volumes:
       - /etc/nginx/conf.d
       - /var/www
-      - /work/
-    working_dir: /work
-    command: bash -c "yum -y update && yum -y install git && git clone https://github.com/yasu-s-nttr/mob-map.git ; cd mob-map/docker/ && sh init_container.sh"
+    mem_limit: 268435456
+    command: "/bin/sh -c \"cp -r /tmp/nginxconf/* /etc/nginx/conf.d/ ; cp -r /tmp/html/* /var/www/ ; mkdir /var/log; touch /var/log/ecs.log && while true; do /bin/date > date; echo ' now running...' > running; cat date running >> /var/log/ecs.log; sleep 1; done\""
 
   nginx:
     image: nginx:1.13
@@ -17,3 +17,4 @@ services:
       - '80:8080'
     volumes_from:
       - datavol
+    mem_limit: 268435456

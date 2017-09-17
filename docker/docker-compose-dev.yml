@@ -1,11 +1,14 @@
 version: '2'
 services:
   datavol:
-    image: centos:7.4.1708
+    build: ..
     container_name: 'datavol'
     volumes:
-      - ../nginx/conf:/etc/nginx/conf.d:ro
-      - ../html:/var/www:ro
+      - /etc/nginx/conf.d
+      - /var/www
+    mem_limit: 268435456
+    command: "/bin/sh -c \"cp -r /tmp/nginxconf/* /etc/nginx/conf.d/ ; cp -r /tmp/html/* /var/www/ ; mkdir /var/log; touch /var/log/ecs.log && while true; do /bin/date > date; echo ' now running...' > running; cat date running >> /var/log/ecs.log; sleep 1; done\""
+    
   nginx:
     image: nginx:1.13
     container_name: 'nginx'
@@ -13,3 +16,4 @@ services:
       - '80:8080'
     volumes_from:
       - datavol
+    mem_limit: 268435456
